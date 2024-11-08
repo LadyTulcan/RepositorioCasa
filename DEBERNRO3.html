@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script>
+        function calcular() {
+            var num1 = parseFloat(document.getElementById('numero1').value);
+            var num2 = parseFloat(document.getElementById('numero2').value);
+            var operacion = document.getElementById('operacion').value;
+            var resultado;
+
+            if (operacion === '+') {
+                resultado = num1 + num2;
+            } else if (operacion === '-') {
+                resultado = num1 - num2;
+            } else if (operacion === '*') {
+                resultado = num1 * num2;
+            } else if (operacion === '/') {
+                if (num2 === 0) {
+                    resultado = "Error: No se puede dividir entre 0";
+                } else {
+                    resultado = num1 / num2;
+                }
+            } else {
+                resultado = "Operación no válida";
+            }
+
+            document.getElementById('resultado').innerText = "El resultado es: " + resultado;
+        }
+        
+    </script>
+    <style>
+        td:hover {
+            background-color: brown; 
+            color: red; 
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Calculadora</h3>
+    
+    <table border="1">
+        <tr>
+            <td>Numero 1</td>
+            <td><input type="number" id="numero1"></td>
+        </tr>
+        <tr>
+            <td>Numero 2</td>
+            <td><input type="number" id="numero2"></td>
+        </tr>
+        <tr>
+            <td>Operación</td>
+            <td><input type="text" id="operacion" placeholder="+, -, *, /"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="resultado" style="text-align: center;">El resultado es: </td>
+        </tr>
+    </table>
+    
+    <br>
+    <button onclick="calcular()">Calcular</button>
+
+</body>
+</html>
+
+
+
